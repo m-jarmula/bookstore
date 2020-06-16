@@ -3,6 +3,8 @@ const router = require('./config/router');
 const path = require('path')
 const hbs = require('hbs');
 const app = express();
+const port = process.env.PORT
+console.log(process.env.PORT)
 const staticDir = path.join(__dirname, '../src/public')
 const viewsPath = path.join(__dirname, 'templates/views')
 const partialsPath = path.join(__dirname, 'templates/partials')
@@ -27,6 +29,6 @@ app.set('view options', { layout: `../layouts/default` })
 
 router(app)
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000')
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`)
 });
